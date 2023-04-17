@@ -153,7 +153,7 @@ struct SwipeAction<V1: View, V2: View>: ViewModifier {
     }
     
     var swipedMenu: some View {
-        HStack(spacing: 0) {
+        VStack(spacing: 0) {
             leadingView
             Spacer()
             trailingView
@@ -162,7 +162,7 @@ struct SwipeAction<V1: View, V2: View>: ViewModifier {
     }
     
     var slidedMenu: some View {
-        HStack(spacing: 0) {
+        VStack(spacing: 0) {
             leadingView
                 .offset(x: (-1 * maxLeadingOffset) + offset)
             Spacer()
