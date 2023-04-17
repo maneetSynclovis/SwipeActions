@@ -52,8 +52,8 @@ struct SwipeAction<V1: View, V2: View>: ViewModifier {
     @State private var minTrailingOffsetIsCounted: Bool = false
     
     private let menuTyped: MenuType
-    private let leadingSwipeView: Group<V1>?
-    private let trailingSwipeView: Group<V2>?
+    private let leadingSwipeView: V1?
+    private let trailingSwipeView: V2?
 
     private let swipeColor: Color?
     private let allowsFullSwipe: Bool
@@ -153,7 +153,7 @@ struct SwipeAction<V1: View, V2: View>: ViewModifier {
     }
     
     var swipedMenu: some View {
-        VStack(spacing: 0) {
+        HStack(spacing: 0) {
             leadingView
             Spacer()
             trailingView
@@ -162,7 +162,7 @@ struct SwipeAction<V1: View, V2: View>: ViewModifier {
     }
     
     var slidedMenu: some View {
-        VStack(spacing: 0) {
+        HStack(spacing: 0) {
             leadingView
                 .offset(x: (-1 * maxLeadingOffset) + offset)
             Spacer()
